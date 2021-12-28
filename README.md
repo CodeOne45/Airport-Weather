@@ -26,6 +26,7 @@ You need to install the following in order to run this project :
 
 ## Usage
 
+- Make sur to anabled mod module : `go env -w GO111MODULE=on`
 - Run it first with `mosquitto -v`
 
 ## Contributors
