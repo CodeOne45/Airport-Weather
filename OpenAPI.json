@@ -1,0 +1,36 @@
+{
+    "openapi":"3.0.2",
+    "info": {
+      "title":"Weather API",
+      "version":"1.0"
+    },
+    "servers": [
+      {"url":"https://api.server.test/v1"}
+    ],
+    "paths": {
+        "/{type}/list": {
+            "get": {
+                "description": "Liste des mesures d’un certain type entre 2 bornes de temps",
+                "parameters": [{"date":""},{"hour":""}],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+
+        },
+        "/average": {
+            "get": {
+                "description": "Moyenne des mesures des 3 types pour une journée",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        }
+
+    }
+  }
