@@ -8,10 +8,37 @@
       {"url":"https://api.server.test/v1"}
     ],
     "paths": {
-        "/{type}/list": {
+        "/{type}/list/{time1}/{time2}": {
             "get": {
                 "description": "Liste des mesures d’un certain type entre 2 bornes de temps",
-                "parameters": [{"date":""},{"hour":""}],
+                "parameters": [{
+                    "name": "time1",
+                    "in" : "path",
+                    "description": "time of the first data",
+                    "required" : true,
+                    "schema" : {
+                        "type": "string",
+                        "additionalProperties": false
+                    }},
+                    {
+                    "name": "time2",
+                    "in" : "path",
+                    "description": "time of the last data",
+                    "required" : true,
+                    "schema" : {
+                        "type": "string",
+                        "additionalProperties": false
+                    }},
+                    {
+                        "name": "type",
+                        "in" : "path",
+                        "description": "type of the data",
+                        "required" : true,
+                        "schema" : {
+                            "type": "string",
+                            "additionalProperties": false
+                        }
+                    }],
                 "responses": {
                     "200": {
                         "description": "OK"
