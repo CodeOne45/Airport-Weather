@@ -8,18 +8,18 @@ import (
 	"util"
 )
 
-func main(){
-	// Use pressure configuration
-	values := tools.ReadFile("config-pressure")
+func main() {
+
+	values := tools.ReadFile("config-temp")
 	var config util.Config
 	json.Unmarshal(values, &config)
 
-	// Creation/Connection of a client
 	client := tools.Connect(config.Host, config.ClientId)
 
 	for {
 		client.Publish(config.Broker, config.Qoslevel, false, fmt.Sprintf("%d | %s | %s |%d | %s",
-			config.IdSensor, config.IataCode, config.Nature, tools.PressureNumberGenerator(), time.Now()))
+			config.IdSensor, config.IataCode, config.Nature, tools.TempNumberGenerator(), time.Now()))
 		time.Sleep(time.Second * 10)
 	}
+
 }

@@ -4,11 +4,28 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"os"
 	"time"
+	"util"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 )
+
+// TODO : Fix the pressure function --> render real values
+func PressureNumberGenerator() int {
+	return rand.Intn(util.MAXIMUM_VALUE_PRESSURE-util.MINIMUM_VALUE_PRESSURE) + util.MINIMUM_VALUE_PRESSURE
+}
+
+// TODO : Fix the temp function --> render real values
+func TempNumberGenerator() int {
+	return rand.Intn(util.MAXIMUM_VALUE_TEMP-util.MINIMUM_VALUE_TEMP) + util.MINIMUM_VALUE_TEMP
+}
+
+// TODO : Fix the wind function --> render real values
+func WindNumberGenerator() int {
+	return rand.Intn(util.MAXIMUM_VALUE_WIND-util.MINIMUM_VALUE_WIND) + util.MINIMUM_VALUE_WIND
+}
 
 func ReadFile(filename string) []byte {
 	jsonfile, err := os.Open("../../internal/util/" + filename + ".json")
